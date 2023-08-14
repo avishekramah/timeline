@@ -1,0 +1,234 @@
+:root {
+    --main-color: #b14828;
+    --main-light-color: #ffa9a2;
+    --main-color-hover: #ff9c7e;
+    --text-color: #1b1919;
+
+    --bg-color: #f1f1f1;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins';
+    background: var(--bg-color);
+}
+
+.container {
+    width: 100%; /* Largeur du conteneur */
+    max-width: 1200px; /* Largeur maximale du conteneur */
+    margin-left: auto; /* Centrer horizontalement */
+    margin-right: auto; /* Centrer horizontalement */
+    padding-left: 64px; /* Marge interne gauche */
+    padding-right: 64px; /* Marge interne droite */
+    box-sizing: border-box; /* Inclure les bordures et les marges internes dans la largeur totale */
+}
+
+/****
+Header
+****/
+
+
+.timeline {
+    margin: 120px 16px 0;
+}
+
+.timeline .timeline-line {
+    width: 100%;
+    display: flex;
+}
+
+
+.timeline .timeline-line.left {
+    text-align: right;
+}
+
+.timeline .timeline-line.left .timeline-line--container {
+    border-right: 1px solid var(--main-color);
+}
+
+.timeline .timeline-line.right {
+    text-align: left;
+    justify-content: end;
+
+    margin-left: -1px;
+
+}
+
+.timeline .timeline-line.right .timeline-line--container {
+    border-left: 1px solid var(--main-color);
+}
+
+
+.timeline .timeline-line.right .timeline-line--container {
+    padding-left: 32px;
+}
+
+.timeline .timeline-line.left .timeline-line--container {
+    padding-right: 32px;
+}
+
+.timeline .timeline-line--container {
+    width: 50%;
+    position: relative;
+}
+
+.timeline .timeline-line .timeline-line--container::after {
+    content: '';
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    background: var(--main-color);
+    top: 12px;
+    border-radius: 32px;
+    box-shadow: 0 0 0 2px rgba(153, 60, 24, 0.5);
+}
+
+.timeline .timeline-line.right .timeline-line--container::after {
+    left: -8px;
+}
+
+.timeline .timeline-line.left .timeline-line--container::after {
+    right: -8px;
+}
+
+
+.timeline .timeline-line--container .timeline__date {
+    color: var(--main-color);
+    font-weight: 700;
+    font-size: 30px;;
+}
+
+.timeline .timeline-line--container .timeline__title a {
+    text-decoration: underline;
+}
+
+.timeline .timeline-line--container .timeline__title {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+@media only screen and (max-width: 700px) {
+
+    
+
+    .timeline .timeline-line--container {
+        width: 100%;
+        padding: 0 !important;
+        border: none !important;
+        text-align: left !important;
+    }
+
+    .timeline-line {
+        padding-bottom: 64px;
+    }
+
+    .timeline .timeline-line--container:after {
+        content: none !important;
+    }
+
+}
+
+
+/***
+    The new CSS reset - version 1.8.4 (last updated 14.2.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (â€¢) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
